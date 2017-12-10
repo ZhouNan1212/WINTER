@@ -2,10 +2,12 @@ package com.zhounan.winter;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.Button;
+import android.widget.EditText;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -20,6 +22,20 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 StudentActivity studentActivity = new StudentActivity();
                 studentActivity.requestStudent();
+            }
+        });
+
+        Button designatedStudent = findViewById(R.id.submit_id);
+        //用EditText前，请先:import android.widget.EditText;
+        //获取文本框1的文本
+        designatedStudent.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                EditText editText1 = findViewById(R.id.student_id);
+                final String id = editText1.getText().toString();
+                Log.d("学生id", id);
+                StudentActivity studentActivity = new StudentActivity();
+                studentActivity.requestDesignatedStudent(id);
             }
         });
 

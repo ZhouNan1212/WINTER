@@ -57,6 +57,44 @@ public class StudentActivity extends AppCompatActivity {
 
         });
 
+
+    }
+
+    public void requestDesignatedStudent(String id) {
+        String studentUrl = "http://192.168.0.101:8080/stu/student_name?id=" + id;
+        Log.d("请求url", studentUrl);
+        HttpUtil.sendOkHttpRequest(studentUrl, new Callback() {
+            @Override
+            public void onFailure(Call call, IOException e) {
+                e.printStackTrace();
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        Toast.makeText(StudentActivity.this,
+                                "获取Student失败",
+                                Toast.LENGTH_SHORT).show();
+                    }
+                });
+            }
+
+            @Override
+            public void onResponse(Call call, Response response) throws IOException {
+                final String responseText = response.body().string();
+                final List<Student> studentList = Utility.handleStudentResponse(responseText);
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        if (studentList != null) {
+                            showStudentInfo(studentList);
+                        } else {
+                            Toast.makeText(StudentActivity.this, "获取Student失败", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
+            }
+
+        });
+
     }
 
     private void showStudentInfo(List<Student> studentList) {
