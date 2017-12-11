@@ -39,6 +39,17 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        Button machineLearning = findViewById(R.id.content_label);
+        //用EditText前，请先:import android.widget.EditText;
+        //获取文本框1的文本
+        machineLearning.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                StudentActivity studentActivity = new StudentActivity();
+                studentActivity.requestAllLabel();
+            }
+        });
+
         /*
         WebView webView = (WebView) findViewById(R.id.web_view);
         // 使用findViewById获取WebView的实例

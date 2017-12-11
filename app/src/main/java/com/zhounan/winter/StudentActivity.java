@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.widget.Toast;
 
+import com.zhounan.winter.gson.MachineLearning;
 import com.zhounan.winter.gson.Student;
 import com.zhounan.winter.util.HttpUtil;
 import com.zhounan.winter.util.Utility;
@@ -106,6 +107,50 @@ public class StudentActivity extends AppCompatActivity {
             Log.d("student", "Avg of scores is" + student.avgScore);
         }
     }
+
+    public void requestAllLabel() {
+        String studentUrl = "http://192.168.0.101:8080/machine_learning/all_content";
+        Log.d("请求url", studentUrl);
+        HttpUtil.sendOkHttpRequest(studentUrl, new Callback() {
+            @Override
+            public void onFailure(Call call, IOException e) {
+                e.printStackTrace();
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        Toast.makeText(StudentActivity.this,
+                                "获取文章失败",
+                                Toast.LENGTH_SHORT).show();
+                    }
+                });
+            }
+
+            @Override
+            public void onResponse(Call call, Response response) throws IOException {
+                final String responseText = response.body().string();
+                final List<MachineLearning> machineLearningList = Utility.handleMachineLearningResponse(responseText);
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        if (machineLearningList != null) {
+                            showContentInfo(machineLearningList);
+                        } else {
+                            Toast.makeText(StudentActivity.this, "获取文章内容失败", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
+            }
+        });
+
+    }
+
+    private void showContentInfo(List<MachineLearning> machineLearningList) {
+        for (MachineLearning machineLearning: machineLearningList) {
+            Log.d("MachineLearning", "ID is" + machineLearning.contentID);
+        }
+    }
+
+
 
 
 

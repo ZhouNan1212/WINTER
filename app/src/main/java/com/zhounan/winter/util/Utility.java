@@ -2,6 +2,7 @@ package com.zhounan.winter.util;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
+import com.zhounan.winter.gson.MachineLearning;
 import com.zhounan.winter.gson.Student;
 
 import org.json.JSONArray;
@@ -26,4 +27,16 @@ public class Utility {
         }
         return null;
     }
+
+    public static List<MachineLearning> handleMachineLearningResponse(String response) {
+        try {
+            Gson gson = new Gson();
+            //解析一段json数组
+            return gson.fromJson(response, new TypeToken<List<MachineLearning>>(){}.getType());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
 }

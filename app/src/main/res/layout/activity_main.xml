@@ -49,6 +49,24 @@
             android:layout_height="wrap_content"
             android:text="Submit using GET" />
 
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="输入感兴趣的标签:" />
+
+        <EditText
+            android:id="@+id/machine_learning"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="text" />
+
+        <Button
+            android:id="@+id/content_label"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="提交" />
+
     </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>
