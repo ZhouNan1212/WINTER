@@ -51,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
         /*
-        WebView webView = (WebView) findViewById(R.id.web_view);
+        WebView webView = (WebView) findViewById(R.id.web_view);-
         // 使用findViewById获取WebView的实例
         webView.getSettings().setJavaScriptEnabled(true);
         // 调用WebView的getSettings方法设置浏览器的属性，

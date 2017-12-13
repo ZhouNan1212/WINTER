@@ -6,67 +6,127 @@
     android:layout_height="match_parent"
     tools:context="com.zhounan.winter.MainActivity">
 
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
 
+        <SearchView
+            android:id="@+id/search"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:queryHint="请输入关键字"
+            android:background="@drawable/lightRed"/>
 
-        <TextView
+        <LinearLayout
+            android:orientation="vertical"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Hello World!"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:layout_height="wrap_content">
 
-        <WebView
-            android:id="@+id/web_view"
+            <HorizontalScrollView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:scrollbars="none">
+                <!--不显示滚动条-->
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/lightgray">
+                    <!--设置背景颜色-->
+
+                    <Button
+                        android:id="@+id/ml"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="ml"
+                        android:background="@null"/>
+                    <!--不显示button的背景-->
+
+                    <Button
+                        android:id="@+id/ai"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="ai"
+                        android:background="@null"/>
+
+                    <Button
+                        android:id="@+id/java"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="java"
+                        android:background="@null"/>
+
+                    <Button
+                        android:id="@+id/python"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="python"
+                        android:background="@null"/>
+
+                    <Button
+                        android:id="@+id/c"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="c语言"
+                        android:background="@null"/>
+
+                    <Button
+                        android:id="@+id/cn"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="复杂网络"
+                        android:background="@null"/>
+
+                    <Button
+                        android:id="@+id/student"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="学生"
+                        android:background="@null"/>
+                </LinearLayout>
+
+            </HorizontalScrollView>
+
+        </LinearLayout>
+
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:tools="http://schemas.android.com/tools"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent"
+            android:orientation="vertical" >
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="User Age:" />
+
+            <EditText
+                android:id="@+id/student_id"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="number" />
+
+            <Button
+                android:id="@+id/submit_id"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Submit using GET" />
 
 
+            <EditText
+                android:id="@+id/machine_learning"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="text"
+                android:hint="输入感兴趣的标签:" />
 
+            <Button
+                android:id="@+id/content_label"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="提交" />
 
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical" >
-
-        <Button
-            android:id="@+id/student"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="学生" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="User Age:" />
-
-        <EditText
-            android:id="@+id/student_id"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="number" />
-
-        <Button
-            android:id="@+id/submit_id"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Submit using GET" />
-
-
-        <EditText
-            android:id="@+id/machine_learning"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="text"
-            android:hint="输入感兴趣的标签:" />
-
-        <Button
-            android:id="@+id/content_label"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="提交" />
+        </LinearLayout>
 
     </LinearLayout>
 
