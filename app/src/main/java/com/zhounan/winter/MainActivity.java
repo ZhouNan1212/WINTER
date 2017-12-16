@@ -7,7 +7,10 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.LinearLayout;
+import android.widget.ListView;
+import android.widget.Toast;
 
 import com.loopeer.cardstack.AllMoveDownAnimatorAdapter;
 import com.loopeer.cardstack.CardStackView;
@@ -15,70 +18,41 @@ import com.loopeer.cardstack.UpDownAnimatorAdapter;
 import com.loopeer.cardstack.UpDownStackAnimatorAdapter;
 import com.nightonke.boommenu.BoomMenuButton;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 
 import jp.co.recruit_lifestyle.android.widget.WaveSwipeRefreshLayout;
 
 
-public class MainActivity extends AppCompatActivity implements CardStackView.ItemExpendListener {
+public class MainActivity extends AppCompatActivity{
 
-    public static Integer[] TEST_DATAS = new Integer[]{
-            R.color.color_1,
-            R.color.color_2,
-            R.color.color_3,
-            R.color.color_4,
-            R.color.color_5,
-            R.color.color_6,
-            R.color.color_7,
-            R.color.color_8,
-            R.color.color_9,
-            R.color.color_10,
-            R.color.color_11,
-            R.color.color_12,
-            R.color.color_13,
-            R.color.color_14,
-            R.color.color_15,
-            R.color.color_16,
-            R.color.color_17,
-            R.color.color_18,
-            R.color.color_19,
-            R.color.color_20,
-            R.color.color_21,
-            R.color.color_22,
-            R.color.color_23,
-            R.color.color_24,
-            R.color.color_25,
-            R.color.color_26
-    };
-    private CardStackView mStackView;
-    private LinearLayout mActionButtonContainer;
-    private TestStackAdapter mTestStackAdapter;
-    private WaveSwipeRefreshLayout mWaveSwipeRefreshLayout;
-    private BoomMenuButton boomMenuButton;
-
+    //ListView控件
+    private ListView mList;
+    //ListView数据源
+    private List<String> data;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        mStackView = (CardStackView) findViewById(R.id.winter_stackview_main);
-        mActionButtonContainer = (LinearLayout) findViewById(R.id.winter_button_container);
-        mTestStackAdapter = new TestStackAdapter(this);
-        mStackView.setAdapter(mTestStackAdapter);
-        mTestStackAdapter.updateData(Arrays.asList(TEST_DATAS));
+        data = new ArrayList<>();
+        mList = (ListView)findViewById(R.id.mList);
+        for(int i = 0; i < 20; i ++){
+            data.add("今天好手气" + i);
+        }
+        MyAdapter adapter = new MyAdapter(data);
+        mList.setAdapter(adapter);
+        //ListView item点击事件
+        mList.setOnItemClickListener(new ListView.OnItemClickListener(){
 
-        new Handler().postDelayed(
-                //实际上也就实现了一个0.2s的一个定时器
-                new Runnable() {
-                    @Override
-                    public void run() {
-                        mTestStackAdapter.updateData(Arrays.asList(TEST_DATAS));
-                    }
-                }
-                , 200
-        );
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Toast.makeText(MainActivity.this,"我是item点击事件 i = " + i + "l = " + l, Toast.LENGTH_SHORT).show();
+            }
+        });
 
 
         //Button student = findViewById(R.id.student);
@@ -129,42 +103,6 @@ public class MainActivity extends AppCompatActivity implements CardStackView.Ite
         */
 
 
-    }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) { //创建菜单
-        getMenuInflater().inflate(R.menu.winter_menu_actions, // 要加载的布局文件的ID;
-                menu); //要填充的菜单
-        return super.onCreateOptionsMenu(menu);
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.MENU_ALL_DOWN:
-                mStackView.setAnimatorAdapter(new AllMoveDownAnimatorAdapter(mStackView));
-                break;
-            case R.id.MENU_UP_DOWN:
-                mStackView.setAnimatorAdapter(new UpDownAnimatorAdapter(mStackView));
-                break;
-            case R.id.MENU_UP_DOWN_STACK:
-                mStackView.setAnimatorAdapter(new UpDownStackAnimatorAdapter(mStackView));
-                break;
-        }
-        return super.onOptionsItemSelected(item);
-    }
-
-    @Override
-    public void onItemExpend(boolean expend) {
-        mActionButtonContainer.setVisibility(expend ? View.VISIBLE : View.GONE);
-    }
-
-    public void onPreClick(View view) {
-        mStackView.pre();
-    }
-
-    public void onNextClick(View view) {
-        mStackView.next();
     }
 
 }

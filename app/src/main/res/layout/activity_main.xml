@@ -147,20 +147,25 @@
         <!--</LinearLayout>-->
 
 
-        <jp.co.recruit_lifestyle.android.widget.WaveSwipeRefreshLayout
-            android:id="@+id/main_swipe"
-            android:layout_below="@+id/scrollBanner"
+    <!--内部要有一个ListView对象-->
+    <jp.co.recruit_lifestyle.android.widget.WaveSwipeRefreshLayout
+        android:id="@+id/main_swipe"
+        android:layout_below="@+id/scrollBanner"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/lightBlue">
+
+        <ListView
+            android:id="@+id/mList"
+            android:divider="@null"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@drawable/lightBlue">
+            android:background="@drawable/white">
+        </ListView>
 
-            <ListView
-                android:id="@+id/mList"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-            </ListView>
+    </jp.co.recruit_lifestyle.android.widget.WaveSwipeRefreshLayout>
 
-        </jp.co.recruit_lifestyle.android.widget.WaveSwipeRefreshLayout>
+
 
 
     <!--<LinearLayout-->
