@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- menu group -->
+    <group android:id="@+id/group_setting">
+        <item android:id="@+id/MENU_ALL_DOWN"
+              android:title="@string/menu_action_all_down" />
+        <item android:id="@+id/MENU_UP_DOWN"
+              android:title="@string/menu_action_up_down" />
+        <item android:id="@+id/MENU_UP_DOWN_STACK"
+              android:title="@string/menu_action_up_down_stack" />
+    </group>
+</menu>

@@ -34,4 +34,13 @@ dependencies {
     compile 'com.android.support:design:26.1.0'
 
     compile 'com.jakewharton:butterknife:8.5.1'
+    compile 'com.loopeer.library:cardstack:1.0.2'
+
+    compile 'com.github.yalantis:Side-Menu.Android:1.0.1'
+    compile 'com.github.recruit-lifestyle:WaveSwipeRefreshLayout:1.6'
+    compile 'com.github.yalantis:Side-Menu.Android:1.0.1'
+    compile 'com.nightonke:boommenu:1.0.9'
+
+
+
 }

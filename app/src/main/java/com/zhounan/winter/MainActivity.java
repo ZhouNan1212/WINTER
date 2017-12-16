@@ -1,49 +1,94 @@
 package com.zhounan.winter;
 
-import android.graphics.Color;
-import android.os.Build;
-import android.support.annotation.BinderThread;
-import android.support.transition.TransitionSet;
-import android.support.transition.TransitionManager;
-import android.support.v4.view.ViewCompat;
+import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
-import android.view.ViewTreeObserver;
-import android.view.WindowManager;
-import android.webkit.WebView;
-import android.webkit.WebViewClient;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
-import android.widget.ScrollView;
-import android.widget.TextView;
-import android.support.transition.AutoTransition;
 
-import butterknife.*;
-import butterknife.ButterKnife;
+import com.loopeer.cardstack.AllMoveDownAnimatorAdapter;
+import com.loopeer.cardstack.CardStackView;
+import com.loopeer.cardstack.UpDownAnimatorAdapter;
+import com.loopeer.cardstack.UpDownStackAnimatorAdapter;
+import com.nightonke.boommenu.BoomMenuButton;
+
+import java.util.Arrays;
 
 
-public class MainActivity extends AppCompatActivity {
+import jp.co.recruit_lifestyle.android.widget.WaveSwipeRefreshLayout;
+
+
+public class MainActivity extends AppCompatActivity implements CardStackView.ItemExpendListener {
+
+    public static Integer[] TEST_DATAS = new Integer[]{
+            R.color.color_1,
+            R.color.color_2,
+            R.color.color_3,
+            R.color.color_4,
+            R.color.color_5,
+            R.color.color_6,
+            R.color.color_7,
+            R.color.color_8,
+            R.color.color_9,
+            R.color.color_10,
+            R.color.color_11,
+            R.color.color_12,
+            R.color.color_13,
+            R.color.color_14,
+            R.color.color_15,
+            R.color.color_16,
+            R.color.color_17,
+            R.color.color_18,
+            R.color.color_19,
+            R.color.color_20,
+            R.color.color_21,
+            R.color.color_22,
+            R.color.color_23,
+            R.color.color_24,
+            R.color.color_25,
+            R.color.color_26
+    };
+    private CardStackView mStackView;
+    private LinearLayout mActionButtonContainer;
+    private TestStackAdapter mTestStackAdapter;
+    private WaveSwipeRefreshLayout mWaveSwipeRefreshLayout;
+    private BoomMenuButton boomMenuButton;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Button student = findViewById(R.id.student);
-        student.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                StudentActivity studentActivity = new StudentActivity();
-                studentActivity.requestStudent();
-            }
-        });
+        mStackView = (CardStackView) findViewById(R.id.winter_stackview_main);
+        mActionButtonContainer = (LinearLayout) findViewById(R.id.winter_button_container);
+        mTestStackAdapter = new TestStackAdapter(this);
+        mStackView.setAdapter(mTestStackAdapter);
+        mTestStackAdapter.updateData(Arrays.asList(TEST_DATAS));
+
+        new Handler().postDelayed(
+                //实际上也就实现了一个0.2s的一个定时器
+                new Runnable() {
+                    @Override
+                    public void run() {
+                        mTestStackAdapter.updateData(Arrays.asList(TEST_DATAS));
+                    }
+                }
+                , 200
+        );
+
+
+        //Button student = findViewById(R.id.student);
+//        student.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                StudentActivity studentActivity = new StudentActivity();
+//                studentActivity.requestStudent();
+//            }
+//        });
 
 //        Button designatedStudent = findViewById(R.id.submit_id);
 //        //用EditText前，请先:import android.widget.EditText;
@@ -83,5 +128,43 @@ public class MainActivity extends AppCompatActivity {
         webView.loadUrl("http://www.baidu.com");
         */
 
+
     }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) { //创建菜单
+        getMenuInflater().inflate(R.menu.winter_menu_actions, // 要加载的布局文件的ID;
+                menu); //要填充的菜单
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.MENU_ALL_DOWN:
+                mStackView.setAnimatorAdapter(new AllMoveDownAnimatorAdapter(mStackView));
+                break;
+            case R.id.MENU_UP_DOWN:
+                mStackView.setAnimatorAdapter(new UpDownAnimatorAdapter(mStackView));
+                break;
+            case R.id.MENU_UP_DOWN_STACK:
+                mStackView.setAnimatorAdapter(new UpDownStackAnimatorAdapter(mStackView));
+                break;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onItemExpend(boolean expend) {
+        mActionButtonContainer.setVisibility(expend ? View.VISIBLE : View.GONE);
+    }
+
+    public void onPreClick(View view) {
+        mStackView.pre();
+    }
+
+    public void onNextClick(View view) {
+        mStackView.next();
+    }
+
 }
