@@ -1,191 +1,166 @@
-<?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="horizontal"
-    tools:context="com.zhounan.winter.MainActivity">
+<!--<?xml version="1.0" encoding="utf-8"?>-->
+<!--<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
+    <!--xmlns:app="http://schemas.android.com/apk/res-auto"-->
+    <!--xmlns:tools="http://schemas.android.com/tools"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="match_parent"-->
+    <!--android:orientation="horizontal"-->
+    <!--tools:context="com.zhounan.winter.MainActivity">-->
 
-    <include
-        android:id="@+id/search_bar"
-        layout="@layout/search_bar"/>
+    <!--<include-->
+        <!--android:id="@+id/search_bar"-->
+        <!--layout="@layout/search_bar"/>-->
 
-        <LinearLayout
-            android:id="@+id/scrollBanner"
-            android:layout_below="@+id/search_bar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <HorizontalScrollView
-                android:layout_width="wrap_content"
-                android:layout_height="40dp"
-                android:scrollbars="none">
-                <!--不显示滚动条-->
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/topColor">
-                    <!--设置背景颜色-->
-
-                    <Button
-                        android:id="@+id/main"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:background="@null"
-                        android:text="首页"
-                        android:textSize="@dimen/x40"
-                        android:textColor="@drawable/darkGray"/>
-
-                    <Button
-                        android:id="@+id/ml"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:background="@null"
-                        android:text="ml"
-                        android:textSize="@dimen/x40"
-                        android:textColor="@drawable/darkGray"/>
-                    <!--不显示button的背景-->
-
-                    <Button
-                        android:id="@+id/ai"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:background="@null"
-                        android:text="ai"
-                        android:textSize="@dimen/x40"
-                        android:textColor="@drawable/darkGray"/>
-
-                    <Button
-                        android:id="@+id/java"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:background="@null"
-                        android:text="java"
-                        android:textSize="@dimen/x40"
-                        android:textColor="@drawable/darkGray"/>
-
-                    <Button
-                        android:id="@+id/python"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:background="@null"
-                        android:text="python"
-                        android:textSize="@dimen/x40"
-                        android:textColor="@drawable/darkGray"/>
-
-                    <Button
-                        android:id="@+id/c"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:background="@null"
-                        android:text="c语言"
-                        android:textSize="@dimen/x40"
-                        android:textColor="@drawable/darkGray"/>
-
-                    <Button
-                        android:id="@+id/cn"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:background="@null"
-                        android:text="复杂网络"
-                        android:textSize="@dimen/x40"
-                        android:textColor="@drawable/darkGray"/>
-
-                    <Button
-                        android:id="@+id/student"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:background="@null"
-                        android:text="学生"
-                        android:textSize="@dimen/x40"
-                        android:textColor="@drawable/darkGray"/>
-                </LinearLayout>
-
-            </HorizontalScrollView>
-
-        </LinearLayout>
-
-        <!--<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
-            <!--xmlns:tools="http://schemas.android.com/tools"-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="match_parent"-->
+        <!--<LinearLayout-->
+            <!--android:id="@+id/scrollBanner"-->
+            <!--android:layout_below="@+id/search_bar"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
             <!--android:orientation="vertical">-->
 
-            <!--<TextView-->
-                <!--android:layout_width="match_parent"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:text="User Age:" />-->
+            <!--<HorizontalScrollView-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="40dp"-->
+                <!--android:scrollbars="none">-->
+                <!--&lt;!&ndash;不显示滚动条&ndash;&gt;-->
+                <!--<LinearLayout-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:background="@drawable/topColor">-->
+                    <!--&lt;!&ndash;设置背景颜色&ndash;&gt;-->
 
-            <!--<EditText-->
-                <!--android:id="@+id/student_id"-->
-                <!--android:layout_width="match_parent"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:inputType="number" />-->
+                    <!--<Button-->
+                        <!--android:id="@+id/main"-->
+                        <!--android:layout_width="wrap_content"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:background="@null"-->
+                        <!--android:text="首页"-->
+                        <!--android:textSize="@dimen/x40"-->
+                        <!--android:textColor="@drawable/darkGray"/>-->
 
-            <!--<Button-->
-                <!--android:id="@+id/submit_id"-->
-                <!--android:layout_width="match_parent"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:text="Submit using GET" />-->
+                    <!--<Button-->
+                        <!--android:id="@+id/ml"-->
+                        <!--android:layout_width="wrap_content"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:background="@null"-->
+                        <!--android:text="ml"-->
+                        <!--android:textSize="@dimen/x40"-->
+                        <!--android:textColor="@drawable/darkGray"/>-->
+                    <!--&lt;!&ndash;不显示button的背景&ndash;&gt;-->
 
+                    <!--<Button-->
+                        <!--android:id="@+id/ai"-->
+                        <!--android:layout_width="wrap_content"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:background="@null"-->
+                        <!--android:text="ai"-->
+                        <!--android:textSize="@dimen/x40"-->
+                        <!--android:textColor="@drawable/darkGray"/>-->
 
-            <!--<EditText-->
-                <!--android:id="@+id/machine_learning"-->
-                <!--android:layout_width="match_parent"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:hint="输入感兴趣的标签:"-->
-                <!--android:inputType="text" />-->
+                    <!--<Button-->
+                        <!--android:id="@+id/java"-->
+                        <!--android:layout_width="wrap_content"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:background="@null"-->
+                        <!--android:text="java"-->
+                        <!--android:textSize="@dimen/x40"-->
+                        <!--android:textColor="@drawable/darkGray"/>-->
 
-            <!--<Button-->
-                <!--android:id="@+id/content_label"-->
-                <!--android:layout_width="match_parent"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:text="提交" />-->
+                    <!--<Button-->
+                        <!--android:id="@+id/python"-->
+                        <!--android:layout_width="wrap_content"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:background="@null"-->
+                        <!--android:text="python"-->
+                        <!--android:textSize="@dimen/x40"-->
+                        <!--android:textColor="@drawable/darkGray"/>-->
+
+                    <!--<Button-->
+                        <!--android:id="@+id/c"-->
+                        <!--android:layout_width="wrap_content"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:background="@null"-->
+                        <!--android:text="c语言"-->
+                        <!--android:textSize="@dimen/x40"-->
+                        <!--android:textColor="@drawable/darkGray"/>-->
+
+                    <!--<Button-->
+                        <!--android:id="@+id/cn"-->
+                        <!--android:layout_width="wrap_content"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:background="@null"-->
+                        <!--android:text="复杂网络"-->
+                        <!--android:textSize="@dimen/x40"-->
+                        <!--android:textColor="@drawable/darkGray"/>-->
+
+                    <!--<Button-->
+                        <!--android:id="@+id/student"-->
+                        <!--android:layout_width="wrap_content"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:background="@null"-->
+                        <!--android:text="学生"-->
+                        <!--android:textSize="@dimen/x40"-->
+                        <!--android:textColor="@drawable/darkGray"/>-->
+                <!--</LinearLayout>-->
+
+            <!--</HorizontalScrollView>-->
 
         <!--</LinearLayout>-->
 
+    <!--<jp.co.recruit_lifestyle.android.widget.WaveSwipeRefreshLayout-->
+        <!--android:id="@+id/main_swipe"-->
+        <!--android:layout_below="@+id/scrollBanner"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:background="@drawable/lightBlue">-->
 
-    <!--内部要有一个ListView对象-->
-    <jp.co.recruit_lifestyle.android.widget.WaveSwipeRefreshLayout
-        android:id="@+id/main_swipe"
-        android:layout_below="@+id/scrollBanner"
+        <!--<ListView-->
+            <!--android:id="@+id/mList"-->
+            <!--android:divider="@null"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="match_parent"-->
+            <!--android:background="@drawable/white">-->
+        <!--</ListView>-->
+
+    <!--</jp.co.recruit_lifestyle.android.widget.WaveSwipeRefreshLayout>-->
+
+<!--</android.support.design.widget.CoordinatorLayout>-->
+
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/coordinatorLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/appBarLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/launcher_item_select"
+            app:layout_scrollFlags="scroll|enterAlways"
+            app:titleTextAppearance="@style/ansenTextTitleAppearance">
+        </android.support.v7.widget.Toolbar>
+        <android.support.design.widget.TabLayout
+            android:id="@+id/tabLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:background="@color/main_color"
+            app:tabIndicatorColor="@color/white_normal"
+            app:tabIndicatorHeight="2dp"
+            app:tabSelectedTextColor="@color/main_title_text_select"
+            app:tabTextAppearance="@style/AnsenTabLayoutTextAppearance"
+            app:tabTextColor="@color/main_title_text_normal"/>
+    </android.support.design.widget.AppBarLayout>
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/viewPager"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/lightBlue">
-
-        <ListView
-            android:id="@+id/mList"
-            android:divider="@null"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@drawable/white">
-        </ListView>
-
-    </jp.co.recruit_lifestyle.android.widget.WaveSwipeRefreshLayout>
-
-
-
-
-    <!--<LinearLayout-->
-        <!--android:id="@+id/button_container"-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:layout_gravity="end"-->
-        <!--android:layout_marginRight="@dimen/activity_horizontal_margin"-->
-        <!--android:orientation="vertical"-->
-        <!--android:gravity="center">-->
-        <!--<Button-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:src="@color/color_1"-->
-            <!--android:text="Pre" />-->
-        <!--<Button-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:text="Next"/>-->
-    <!--</LinearLayout>-->
-
-
-</RelativeLayout>
+        app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+</android.support.design.widget.CoordinatorLayout>

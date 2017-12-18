@@ -52,6 +52,7 @@ public class MainActivity extends AppCompatActivity{
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 Toast.makeText(MainActivity.this,"我是item点击事件 i = " + i + "l = " + l, Toast.LENGTH_SHORT).show();
             }
+
         });
 
 
